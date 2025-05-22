@@ -1,7 +1,7 @@
 name: Render homepage and deploy
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Cho phép chạy thủ công từ nút Run workflow trong GitHub
 
 jobs:
   render:
@@ -23,9 +23,12 @@ jobs:
         run: node render.js
 
       - name: Commit & Push
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git config user.email github-actions[bot]@users.noreply.github.com
           git add index.html assets/
           git commit -m "Auto render index.html [skip ci]" || echo "No changes"
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}
           git push
