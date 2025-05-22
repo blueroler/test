@@ -24,12 +24,12 @@ const saveFile = async (url, outputPath) => {
   });
 
   const page = await browser.newPage();
-  await page.goto("https://ex.com", { waitUntil: "networkidle0" });
+  await page.goto("https://blueroler.com", { waitUntil: "networkidle0" });
 
   const html = await page.content();
   const $ = cheerio.load(html);
 
-  const baseURL = "https://ex.com";
+  const baseURL = "https://blueroler.com";
   mkdir("assets/img");
   mkdir("assets/css");
   mkdir("assets/js");
