@@ -1,0 +1,13 @@
+{
+  "name": "ssr-snapshot",
+  "version": "1.0.0",
+  "main": "render.js",
+  "scripts": {
+    "start": "node render.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "puppeteer": "^21.0.0"
+  }
+}
